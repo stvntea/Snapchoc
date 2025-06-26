@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "SNAPCHOC",
+    "slug": "SNAPCHOC",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/snapchoc-logo.png",
+    "scheme": "wjsc502par21snapchatstyvenraya",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "backgroundColor": "#ffffff",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/snapchoc-logo.png",
+        "backgroundColor": "#000000"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/snapchoc-logo.png",
+          "imageResizeMode": "contain",
+          "imageBackgroundColor": "#000000",
+          "backgroundColor": "#000000",
+          "dark": {
+            "image": "./assets/images/snapchoc-logo.png",
+            "backgroundColor": "#fffff"
+          },
+          "resizeMode": "contain",
+          "imageWidth": 300,
+          "statusBarTranslucent": true,
+          "statusBarStyle": "dark-content"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos to your gallery"
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
