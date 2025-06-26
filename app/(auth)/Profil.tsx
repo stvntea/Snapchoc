@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, TextInput, StyleSheet, Image, Alert, TouchableOpacity, ActivityIndicator } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as SecureStore from 'expo-secure-store';
@@ -6,9 +6,9 @@ import { useRouter } from "expo-router";
 
 
 const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudGhvbnktc3RldmVuLnRlYUBlcGl0ZWNoLmV1IiwiaWF0IjoxNzQ3NzUyMDk4fQ.5oecAgKTJ3HFgGApI0kFil_C3pXL6egEw1xAqeMEyw0";
-const router = useRouter();
 
 export default function Profil() {
+  const router = useRouter();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +49,7 @@ export default function Profil() {
       } else {
         Alert.alert('Erreur', data.message || 'Impossible de charger le profil');
       }
-    } catch (error) {
+    } catch {
       Alert.alert('Erreur', 'Erreur réseau');
     }
     setLoading(false);
@@ -85,7 +85,7 @@ export default function Profil() {
       } else {
         Alert.alert('Erreur', data.message || JSON.stringify(data) || 'Update failed');
       }
-    } catch (error) {
+    } catch {
       Alert.alert('Erreur', 'Erreur réseau');
     }
     setLoading(false);
@@ -108,7 +108,7 @@ export default function Profil() {
       if (!result.canceled && result.assets && result.assets[0].base64) {
         setProfilePicture(`data:image/jpeg;base64,${result.assets[0].base64}`);
       }
-    } catch (error) {
+    } catch {
       Alert.alert('Erreur', 'Impossible de charger l\'image');
     }
   };
@@ -137,7 +137,7 @@ export default function Profil() {
         const data = await response.json();
         Alert.alert('Erreur', data.message || 'Suppression échouée');
       }
-    } catch (error) {
+    } catch {
       Alert.alert('Erreur', 'Erreur réseau');
     }
     setLoading(false);
@@ -172,7 +172,7 @@ export default function Profil() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mon Profil</Text>
-      <Text style={styles.label}>Nom d'utilisateur</Text>
+      <Text style={styles.label}>Nom d&apos;utilisateur</Text>
       <TextInput style={styles.input} value={username} onChangeText={setUsername} placeholderTextColor="#666" />
       <Text style={styles.label}>Email</Text>
       <TextInput style={styles.input} value={email} onChangeText={setEmail} placeholderTextColor="#666" />

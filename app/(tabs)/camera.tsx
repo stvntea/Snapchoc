@@ -5,9 +5,8 @@ import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
 import * as FileSystem from "expo-file-system";
 import * as ImagePicker from "expo-image-picker";
 import { useCallback, useRef, useState } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View, Dimensions, SafeAreaView } from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from "react-native";
 
-const { width, height } = Dimensions.get("window");
 
 export default function CameraScreen() {
   const [facing, setFacing] = useState<CameraType>("back");

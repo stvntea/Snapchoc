@@ -17,9 +17,6 @@ import {
 import * as SecureStore from "expo-secure-store";
 import { useRouter } from "expo-router";
 
-  const router = useRouter();
-
-
 const { width } = Dimensions.get("window");
 
 interface User {
@@ -29,6 +26,7 @@ interface User {
 }
 
 export default function AddFriends() {
+  const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
@@ -114,7 +112,16 @@ export default function AddFriends() {
               style={{ alignSelf: "flex-start", marginBottom: 10 }}
               onPress={() => router.replace("/(tabs)/messagerie")}
             >
-              <Text style={{ color: "#aaa", fontSize: 28, fontWeight: "bold", opacity: 0.7 }}>{"<"}</Text>
+              <Text
+                style={{
+                  color: "#aaa",
+                  fontSize: 28,
+                  fontWeight: "bold",
+                  opacity: 0.7,
+                }}
+              >
+                {"<"}
+              </Text>
             </TouchableOpacity>
             <Text style={styles.title}>Ajouter un ami</Text>
             <TextInput

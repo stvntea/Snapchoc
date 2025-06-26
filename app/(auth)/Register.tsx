@@ -40,23 +40,6 @@ const RegisterScreen: React.FC<Props> = ({ navigation }) => {
       return;
     }
 
-    try {
-      const checkEmailResponse = await fetch(
-        `https://snapchat.epihub.eu/user/check-email`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            accept: "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
-      );
-    } catch (error) {
-      Alert.alert("Erreur", "Impossible de vérifier l'email");
-      console.error("Email check error:", error);
-      return;
-    }
 
     try {
       const response = await fetch("https://snapchat.epihub.eu/user", {
